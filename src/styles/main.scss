@@ -1,5 +1,3 @@
-@use 'sass:list';
-
 $cell-size: 100px;
 $border-size: 1px;
 $gap-size: 1px;
@@ -54,7 +52,9 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    transition: background-color $animation-duration, transform $animation-duration;
+    transition:
+      background-color $animation-duration,
+      transform $animation-duration;
 
     &::before {
       font-size: $number-font-size;
@@ -85,7 +85,7 @@ body {
   $days: mon, tue, wed, thu, fri, sat, sun;
 
   @each $day in $days {
-    $index: list.index($days, $day) - 1;
+    $index: lint.index($days, $day) - 1;
     &--start-day-#{$day} {
       .calendar__day:nth-child(1) {
         margin-left: calc(#{$index} * #{$column-offset-unit});
