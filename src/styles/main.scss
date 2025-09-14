@@ -82,10 +82,17 @@ body {
   $index mówi ile kolumn w prawo trzeba przesunąć pierwszy dzień miesiąca. index -1 pozwala liczyc od zera, wiec dla poniedzialku bedzie 0  i nic nie przesunie, dla niedzieli bedzie 7-1 =6 czyli niedziela bedzie 1 dniem miesiaca
   */
 
-  $days: mon, tue, wed, thu, fri, sat, sun;
+  $day-indexes: (
+    mon: 0,
+    tue: 1,
+    wed: 2,
+    thu: 3,
+    fri: 4,
+    sat: 5,
+    sun: 6,
+  );
 
-  @each $day in $days {
-    $index: lint.index($days, $day) - 1;
+  @each $day, $index in $day-indexes {
     &--start-day-#{$day} {
       .calendar__day:nth-child(1) {
         margin-left: calc(#{$index} * #{$column-offset-unit});
